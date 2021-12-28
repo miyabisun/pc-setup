@@ -1,14 +1,21 @@
 #!/bin/bash
 script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
 
-brew install tmux
+# install tmux command
+if [ ! -x "$(command -v tmux)" ]; then
+  brew install tmux
+fi
 
 # install tpm plugin manager
 if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  mkdir -p "$HOME/.tmux/plugins"
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
+# set config file
 f="tmux.osx.conf"
-cd "$script_dir/../.config/tmux/"
-mkdir -p "$HOME/.config/tmux"
-ln -sfv "$(pwd)/$f" "$HOME/.config/tmux/$f"
+if [ ! -e "$HOME/.config/tmux/$f" ]; then
+  cd "$script_dir/../.config/tmux/"
+  mkdir -p "$HOME/.config/tmux"
+  ln -sfv "$(pwd)/$f" "$HOME/.config/tmux/$f"
+fi

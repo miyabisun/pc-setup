@@ -1,15 +1,17 @@
 #!/bin/bash
 script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
 
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
+if [ ! -e "$HOME/.yabairc" ]; then
+  brew install koekeishiya/formulae/yabai
+  brew install koekeishiya/formulae/skhd
 
-cd "$script_dir/../.config/home"
-pwd
-for f in ".yabairc" ".skhdrc"
-do
-  ln -sfv "$(pwd)/$f" "$HOME/$f"
-done
+  cd "$script_dir/../.config/home"
+  pwd
+  for f in ".yabairc" ".skhdrc"
+  do
+    ln -sfv "$(pwd)/$f" "$HOME/$f"
+  done
 
-brew services start skhd
-brew services start yabai
+  brew services start skhd
+  brew services start yabai
+fi
