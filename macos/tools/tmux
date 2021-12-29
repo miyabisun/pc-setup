@@ -1,5 +1,6 @@
 #!/bin/bash
 script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
+cd "$script_dir"
 
 # install tmux command
 . common
@@ -13,6 +14,7 @@ fi
 
 # set config file
 f="tmux.osx.conf"
+script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
 cd "$script_dir/../.config/tmux/"
 mkdir -p "$HOME/.config/tmux"
 ln -sfv "$(pwd)/$f" "$HOME/.config/tmux/$f"

@@ -1,0 +1,13 @@
+#!/bin/bash
+script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
+
+# install homebrew
+tools_dir="$script_dir/../tools"
+. $tools_dir/homebrew
+
+# install homebrew tools
+packages=("ag" "fish" "fzf" "git" "jq" "mosh" "node" "tmux")
+for package in ${packages[@]}
+do
+  . $tools_dir/$package
+done
