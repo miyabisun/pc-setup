@@ -6,7 +6,7 @@ tools_dir="$script_dir/../tools"
 . $tools_dir/homebrew
 
 # install homebrew tools
-packages=("ag" "fish" "fzf" "git" "jq" "mosh" "node" "tmux")
+packages=("ag" "fish" "fzf" "git" "jq" "mosh" "nvim" "node" "tmux" "wget")
 for package in ${packages[@]}
 do
   . $tools_dir/$package
