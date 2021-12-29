@@ -1,0 +1,4 @@
+#!/bin/bash
+
+. common
+brew_install ag the_silver_searcher

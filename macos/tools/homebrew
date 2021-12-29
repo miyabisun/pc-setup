@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# install brew command
-#   show: https://brew.sh/index_ja
+# show: https://brew.sh/index_ja
 if [ ! -x "$(command -v brew)" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/miyabi/.profile
