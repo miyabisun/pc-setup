@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ! -x "$(command -v volta)" ]; then
+  curl https://get.volta.sh | bash
+  source "$HOME/.bashrc"
+fi
+
+if [ ! -x "$(command -v node)" ]; then
+  volta install node
+fi
+
+# install node.js modules
+if [ ! -x "$(command -v lsc)" ]; then
+  npm install -g livescript
+fi
