@@ -9,7 +9,7 @@ brew_install skhd
 cd "$script_dir/../config"
 for f in "yabai" "skhd"
 do
-  ln -sfv "$(pwd)/$f" "$HOME/.config/$f"
+  ln -sfnv "$(pwd)/$f" "$HOME/.config/$f"
 done
 
 if [ -x "$(command -v yabai)" ]; then
