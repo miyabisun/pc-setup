@@ -1,0 +1,10 @@
+#!/bin/bash
+script_dir="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")"; pwd)"
+cd "$script_dir"
+
+# show https://github.com/dandavison/delta/releases
+if [ ! -x "$(command -v delta)" ]; then
+  wget https://github.com/dandavison/delta/releases/download/0.13.0/git-delta_0.13.0_amd64.deb
+  dpkg -i git-delta_0.13.0_amd64.deb
+  rm git-delta_0.13.0_amd64.deb
+fi
